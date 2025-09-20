@@ -192,12 +192,12 @@ class TicTacToeGame:
             validinput = False
             
             while validinput == False:
-                user_input = input("Enter two numbers separated by a comma: ")
-                humanrow, humancol = map(int, map(str.strip, user_input.split(',')))
-                if humanrow in [0,1,2] and humancol in [0,1,2] and self.gameboard.entries[humanrow][humancol]:
-                    validinput = True
-                else:
-                    validinput = False
+                user_input = input("Enter two numbers separated by a comma, in the format 1, 2: ")
+                if user_input[0] in ['0', '1', '2']: 
+                    if user_input[3] in ['0', '1', '2']: 
+                        humanrow, humancol = map(int, map(str.strip, user_input.split(',')))
+                        if self.gameboard.entries[humanrow][humancol] == 0: 
+                            validinput = True
                  
             self.gameboard.entries[humanrow][humancol] = 1
             self.turn = 2
